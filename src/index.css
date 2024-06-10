@@ -1,0 +1,97 @@
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-image: url(./assets/bg.jpg);
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 50px;
+  margin-bottom: 13px;
+}
+button {
+  height: 50px;
+  width: 50px;
+  border: 1px solid;
+  background-color: lightgreen;
+  color: black;
+  margin-right: 20px;
+  cursor: pointer;
+  transition:  all 0.4s;
+}
+button:hover {
+  opacity: 60%;
+}
+button:active {
+  opacity: 30%;
+}
+button i {
+  transform: scale(2);
+}
+.addbtn {
+  margin-left: 20px;
+  transform: translateY(-15px);
+  height: 55px;
+  width: 55px;
+}
+.taskbar {
+  width: 80vw;
+  height: 60px;
+  align-self: center;
+  border: 2px solid gray;
+  font-size: 55px;
+  margin-left: 20px;
+}
+
+[id^="item-"]{
+  text-decoration: none;
+  text-decoration-color: none;
+  display: inline-block;
+  margin-right: 50px;
+  font-size: 2.5em;
+  margin-bottom: 0;
+  font-weight: bold;
+  list-style: none;
+  transform: translate(20px, -20px);
+  animation: none;
+  overflow: auto;
+}
+@keyframes blink {
+  0%{  
+    opacity: 1;  
+}  
+25%{  
+    opacity: 0.2;  
+}  
+50%{
+  opacity: 1;
+}
+75% {
+  opacity: 0.2;
+}
+100%{  
+    opacity: 1;  
+}  
+}
+.listitem{
+  list-style: none;
+  height: 100px;
+  background-color: indianred;
+  margin-bottom: 10px;
+ width: 100vw;
+ transform: translateX(-40px);
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ overflow: auto;
+}
+[id^="edit-"]{
+  font-weight: bold;
+  font-size: 15px;
+  transform: scale(1.8);
+  display: none;
+}

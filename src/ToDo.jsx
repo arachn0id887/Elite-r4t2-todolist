@@ -18,8 +18,13 @@ function ToDo(){
    }
   
   function removeTask(index) {
-    const mod = tasks.filter((_, i) => i !== index)
-    setTasks(mod);
+    setTasks(tasks.filter((_, i) => i !== index));
+    document.getElementById(`item-${index}`).style.textDecoration = "none";
+
+    for (i = index + 1; i < tasks.length; i++) {
+        document.getElementById(`item-${i}`).setAttribute = "id", `item-${i - 1}`;
+        document.getElementById(`edit-${i}`).setAttribute = "id", `edit-${i - 1}`;
+    }
   }
   function completeTask(i){
     const item = document.getElementById(`item-${i}`);
@@ -30,7 +35,7 @@ function ToDo(){
   function editTask(i){
     document.getElementById(`item-${i}`).focus();
     document.getElementById(`item-${i}`).contentEditable = "true";
-    document.getElementById(`item-${i}`).style.animation = "blink 1s 5";
+    document.getElementById(`item-${i}`).style.animation = "blink 1s 3";
     document.getElementById(`edit-${i}`).style.display = "block"
   }
 

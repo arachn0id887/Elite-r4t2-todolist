@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 function ToDo(){
   const [tasks, setTasks] = useState(() => JSON.parse(localStorage.getItem("tasks")) || []);
   const [newtask, setNewtask] = useState("");
+  const taskbar = document.querySelector(".taskbar")
 
   useEffect(() => {localStorage.setItem("tasks", JSON.stringify(tasks))}, [tasks]);
 
@@ -16,6 +17,16 @@ function ToDo(){
     setTasks((tasks) => [...tasks, newtask])
    setNewtask("")}
    }
+   function enter(event) {
+    if (event.keyCode === 13) {
+      addTask();
+    }
+  }
+
+  function handleChange(event) {
+    event.preventDefault();
+    setNewtask(event.target.value);
+  }
   
   function removeTask(index) {
     setTasks(tasks.filter((_, i) => i !== index));
@@ -49,7 +60,7 @@ function ToDo(){
 return(
   <div className="todolist" spellCheck="false">
     <h1>TO DO LIST</h1>
-    <input type="text" onChange={handleChange} placeholder="Add new task..." value={newtask} className="taskbar" />
+    <input type="text" onChange={handleChange} onKeyUp={enter} placeholder="Add new task..." value={newtask} className="taskbar" />
     <button onClick={addTask} className="addbtn"><i className="fa-solid fa-plus"></i></button>
     <ul>
       
